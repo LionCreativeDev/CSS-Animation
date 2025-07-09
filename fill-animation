@@ -1,0 +1,74 @@
+<html>
+<head>
+	<style>
+	body{
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	.hero{
+		height: 100vh;
+		width: 100%;
+		background-color: #efefef;
+		overflow: hidden;
+	}
+	.triangle-black {
+		position: absolute;
+		top: 80%;
+		right: 50%;
+		/**background-image: linear-gradient(rgba(153, 153, 153, 0.4), rgba(204, 204, 204, 0.5));**/
+		background-color: #000000;
+		clip-path: polygon(50% 0, 100% 100%, 0 100%);
+		width: 50px;
+		height: 60px;
+	 }
+	 
+	 .triangle-blue {
+		position: absolute;
+		top: 80%;
+		right: 50%;
+		/**background-image: linear-gradient(rgba(153, 153, 153, 0.4), rgba(204, 204, 204, 0.5));**/
+		background-color: blue;
+		clip-path: polygon(50% 0, 100% 100%, 0 100%);
+		width: 50px;
+		height: 60px;
+	 }
+	 
+	 .triangle-fill-animation {
+		animation: myAnim 1s ease 0s 1 normal forwards;
+	 }
+	 
+	 @keyframes myAnim {
+		0% {
+			transform: scale(0);
+		}
+
+		100% {
+			transform: scale(100);
+		}
+	}
+	</style>
+</head>
+<body>
+	<section class="hero">
+		<div class="triangle-black"></div>
+	</section>
+	
+	<script>
+	var btnChangeSlide = document.getElementsByClassName("triangle-black")[0];
+	btnChangeSlide.addEventListener(`click`, handle);
+
+	function handle(evt) {
+		//console.log("clicked");
+		//console.log(evt.target.classList);
+		if(!evt.target.classList.contains("triangle-fill-animation")){ //if(!btnChangeSlide.classList.contains("triangle-fill-animation")){
+			btnChangeSlide.classList.add("triangle-fill-animation");
+		}
+		/**setTimeout(()=>{
+			btnChangeSlide.classList.remove("triangle-fill-animation", "triangle-black");
+			btnChangeSlide.classList.add("triangle-blue")
+		}, 500)**/
+	}
+	</script>
+</body>
+</html>
